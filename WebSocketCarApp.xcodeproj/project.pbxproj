@@ -7,21 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3DD389C013BDCF42978A51 /* Pods_WebSocketCarApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BEB8ACDA07312C84992B05 /* Pods_WebSocketCarApp.framework */; };
 		A3ED7B3A20A48699002ACB98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED7B3920A48699002ACB98 /* AppDelegate.swift */; };
-		A3ED7B3C20A4869A002ACB98 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED7B3B20A4869A002ACB98 /* ViewController.swift */; };
+		A3ED7B3C20A4869A002ACB98 /* CarsListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED7B3B20A4869A002ACB98 /* CarsListingViewController.swift */; };
 		A3ED7B3F20A4869A002ACB98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3ED7B3D20A4869A002ACB98 /* Main.storyboard */; };
 		A3ED7B4120A4869C002ACB98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3ED7B4020A4869C002ACB98 /* Assets.xcassets */; };
 		A3ED7B4420A4869C002ACB98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3ED7B4220A4869C002ACB98 /* LaunchScreen.storyboard */; };
+		A3ED7B5120A48915002ACB98 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3ED7B5320A48915002ACB98 /* Localizable.strings */; };
+		A3ED7B5720A5F670002ACB98 /* BioCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED7B5620A5F670002ACB98 /* BioCar.swift */; };
+		A3ED7B6120A71CE5002ACB98 /* SpeedEvolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED7B6020A71CE4002ACB98 /* SpeedEvolution.swift */; };
+		A3ED7B6320A72C16002ACB98 /* SpeedEvolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED7B6220A72C16002ACB98 /* SpeedEvolutionViewController.swift */; };
+		A3ED7B6620A757E5002ACB98 /* WebSocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ED7B6520A757E5002ACB98 /* WebSocketDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03FB10CC877175EDF4E45C83 /* Pods-WebSocketCarApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSocketCarApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebSocketCarApp/Pods-WebSocketCarApp.debug.xcconfig"; sourceTree = "<group>"; };
+		37961BB555EC85F491A1FA37 /* Pods-WebSocketCarApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSocketCarApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebSocketCarApp/Pods-WebSocketCarApp.release.xcconfig"; sourceTree = "<group>"; };
+		73BEB8ACDA07312C84992B05 /* Pods_WebSocketCarApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebSocketCarApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3ED7B3620A48699002ACB98 /* WebSocketCarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebSocketCarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3ED7B3920A48699002ACB98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A3ED7B3B20A4869A002ACB98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A3ED7B3B20A4869A002ACB98 /* CarsListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListingViewController.swift; sourceTree = "<group>"; };
 		A3ED7B3E20A4869A002ACB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A3ED7B4020A4869C002ACB98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3ED7B4320A4869C002ACB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3ED7B4520A4869C002ACB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3ED7B4C20A48891002ACB98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		A3ED7B4F20A488E0002ACB98 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		A3ED7B5020A488E0002ACB98 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A3ED7B5220A48915002ACB98 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A3ED7B5420A48919002ACB98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A3ED7B5620A5F670002ACB98 /* BioCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioCar.swift; sourceTree = "<group>"; };
+		A3ED7B6020A71CE4002ACB98 /* SpeedEvolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedEvolution.swift; sourceTree = "<group>"; };
+		A3ED7B6220A72C16002ACB98 /* SpeedEvolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedEvolutionViewController.swift; sourceTree = "<group>"; };
+		A3ED7B6520A757E5002ACB98 /* WebSocketDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +47,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D3DD389C013BDCF42978A51 /* Pods_WebSocketCarApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D611008596B889B47631964 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73BEB8ACDA07312C84992B05 /* Pods_WebSocketCarApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		995F20895977A494FAB00ABF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03FB10CC877175EDF4E45C83 /* Pods-WebSocketCarApp.debug.xcconfig */,
+				37961BB555EC85F491A1FA37 /* Pods-WebSocketCarApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A3ED7B2D20A48699002ACB98 = {
 			isa = PBXGroup;
 			children = (
 				A3ED7B3820A48699002ACB98 /* WebSocketCarApp */,
 				A3ED7B3720A48699002ACB98 /* Products */,
+				995F20895977A494FAB00ABF /* Pods */,
+				4D611008596B889B47631964 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +92,52 @@
 		A3ED7B3820A48699002ACB98 /* WebSocketCarApp */ = {
 			isa = PBXGroup;
 			children = (
+				A3ED7B5920A6027A002ACB98 /* Ressources */,
+				A3ED7B5820A6024F002ACB98 /* ViewControllers */,
+				A3ED7B5520A5F64C002ACB98 /* Models */,
 				A3ED7B3920A48699002ACB98 /* AppDelegate.swift */,
-				A3ED7B3B20A4869A002ACB98 /* ViewController.swift */,
 				A3ED7B3D20A4869A002ACB98 /* Main.storyboard */,
-				A3ED7B4020A4869C002ACB98 /* Assets.xcassets */,
 				A3ED7B4220A4869C002ACB98 /* LaunchScreen.storyboard */,
-				A3ED7B4520A4869C002ACB98 /* Info.plist */,
 			);
 			path = WebSocketCarApp;
+			sourceTree = "<group>";
+		};
+		A3ED7B5520A5F64C002ACB98 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A3ED7B5620A5F670002ACB98 /* BioCar.swift */,
+				A3ED7B6020A71CE4002ACB98 /* SpeedEvolution.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A3ED7B5820A6024F002ACB98 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3ED7B6420A757B1002ACB98 /* Controllers */,
+				A3ED7B3B20A4869A002ACB98 /* CarsListingViewController.swift */,
+				A3ED7B6220A72C16002ACB98 /* SpeedEvolutionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A3ED7B5920A6027A002ACB98 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				A3ED7B4520A4869C002ACB98 /* Info.plist */,
+				A3ED7B5320A48915002ACB98 /* Localizable.strings */,
+				A3ED7B4020A4869C002ACB98 /* Assets.xcassets */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		A3ED7B6420A757B1002ACB98 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A3ED7B6520A757E5002ACB98 /* WebSocketDelegate.swift */,
+			);
+			name = Controllers;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3ED7B4820A4869C002ACB98 /* Build configuration list for PBXNativeTarget "WebSocketCarApp" */;
 			buildPhases = (
+				4D354D45F964825E953BB1F1 /* [CP] Check Pods Manifest.lock */,
 				A3ED7B3220A48699002ACB98 /* Sources */,
 				A3ED7B3320A48699002ACB98 /* Frameworks */,
 				A3ED7B3420A48699002ACB98 /* Resources */,
+				3F121593367CB9F69BA018D7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3ED7B4420A4869C002ACB98 /* LaunchScreen.storyboard in Resources */,
+				A3ED7B5120A48915002ACB98 /* Localizable.strings in Resources */,
 				A3ED7B4120A4869C002ACB98 /* Assets.xcassets in Resources */,
 				A3ED7B3F20A4869A002ACB98 /* Main.storyboard in Resources */,
 			);
@@ -130,12 +209,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F121593367CB9F69BA018D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WebSocketCarApp/Pods-WebSocketCarApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WebSocketCarApp/Pods-WebSocketCarApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D354D45F964825E953BB1F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WebSocketCarApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A3ED7B3220A48699002ACB98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3ED7B3C20A4869A002ACB98 /* ViewController.swift in Sources */,
+				A3ED7B5720A5F670002ACB98 /* BioCar.swift in Sources */,
+				A3ED7B6120A71CE5002ACB98 /* SpeedEvolution.swift in Sources */,
+				A3ED7B6620A757E5002ACB98 /* WebSocketDelegate.swift in Sources */,
+				A3ED7B3C20A4869A002ACB98 /* CarsListingViewController.swift in Sources */,
+				A3ED7B6320A72C16002ACB98 /* SpeedEvolutionViewController.swift in Sources */,
 				A3ED7B3A20A48699002ACB98 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +273,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				A3ED7B3E20A4869A002ACB98 /* Base */,
+				A3ED7B4C20A48891002ACB98 /* en */,
+				A3ED7B4F20A488E0002ACB98 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -155,8 +283,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				A3ED7B4320A4869C002ACB98 /* Base */,
+				A3ED7B5020A488E0002ACB98 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A3ED7B5320A48915002ACB98 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3ED7B5220A48915002ACB98 /* fr */,
+				A3ED7B5420A48919002ACB98 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -166,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -226,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -278,11 +418,12 @@
 		};
 		A3ED7B4920A4869C002ACB98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03FB10CC877175EDF4E45C83 /* Pods-WebSocketCarApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K47XFPHWTJ;
-				INFOPLIST_FILE = WebSocketCarApp/Info.plist;
+				INFOPLIST_FILE = WebSocketCarApp/Ressources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,11 +437,12 @@
 		};
 		A3ED7B4A20A4869C002ACB98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37961BB555EC85F491A1FA37 /* Pods-WebSocketCarApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K47XFPHWTJ;
-				INFOPLIST_FILE = WebSocketCarApp/Info.plist;
+				INFOPLIST_FILE = WebSocketCarApp/Ressources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
