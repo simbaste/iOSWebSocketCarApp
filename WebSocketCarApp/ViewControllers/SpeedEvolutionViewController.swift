@@ -10,14 +10,25 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+enum ShapeLaper: String {
+    case shapeLayerGreen
+    case shapeLayerYellow
+    case shapeLayerRed
+    case trackLayer
+}
+
 class SpeedEvolutionViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
         
     private let disposeBag = DisposeBag()
+    private let shapeLayers: [String: CAShapeLayer] = ["shapeLayerGreen": CAShapeLayer(), "shapeLayerYellow": CAShapeLayer(), "shapeLayerRed": CAShapeLayer(), "trackLayer": CAShapeLayer()]
     private let shapeLayer = CAShapeLayer()
     private let trackLayer = CAShapeLayer()
-    
+    private let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+    private let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
+    private var percentage: Float = 0.0
+
     private let percentageLabel: UILabel = {
         let label = UILabel()
         label.text = "Start"
@@ -34,34 +45,66 @@ class SpeedEvolutionViewController: UIViewController {
         return label
     }()
     
+    fileprivate func makeShapeLayer(_ name: ShapeLaper, color: CGColor, strokeEnd: CGFloat, rotate: CGFloat) {
+        shapeLayers[name.rawValue]?.path = circularPath.cgPath
+        shapeLayers[name.rawValue]?.strokeColor = color
+        shapeLayers[name.rawValue]?.lineWidth = 10
+        shapeLayers[name.rawValue]?.fillColor = UIColor.clear.cgColor
+        shapeLayers[name.rawValue]?.lineCap = kCALineCapRound
+        shapeLayers[name.rawValue]?.position = view.center
+        
+        shapeLayers[name.rawValue]?.transform = CATransform3DMakeRotation(rotate, 0, 0, 1)
+        shapeLayers[name.rawValue]?.strokeEnd = strokeEnd
+        
+        view.layer.addSublayer(shapeLayers[name.rawValue]!)
+    }
+    
+    fileprivate func animShapeLayer() {
+        shapeLayers[ShapeLaper.shapeLayerRed.rawValue]?.removeFromSuperlayer()
+        shapeLayers[ShapeLaper.shapeLayerYellow.rawValue]?.removeFromSuperlayer()
+        basicAnimation.duration = 0.5
+        basicAnimation.fillMode = kCAFillModeForwards
+        basicAnimation.isRemovedOnCompletion = false
+        let percent = Int(percentage*100)
+        
+        switch percent {
+        case 76...100:
+            makeShapeLayer(.shapeLayerRed, color: UIColor.red.cgColor, strokeEnd: 0.0, rotate: CGFloat.pi)
+            basicAnimation.toValue = percentage-0.75
+            shapeLayers[ShapeLaper.shapeLayerRed.rawValue]?.add(basicAnimation, forKey: "Speed_Circle_Animation")
+            shapeLayers[ShapeLaper.shapeLayerRed.rawValue]?.strokeEnd = CGFloat(percentage)-0.75
+            fallthrough
+        case 51...75:
+            makeShapeLayer(.shapeLayerYellow, color: UIColor.orange.cgColor, strokeEnd: 0.0, rotate: CGFloat.pi/2)
+            basicAnimation.toValue =  percent > 75 ? 0.25 : CGFloat(percentage)-0.5
+            shapeLayers[ShapeLaper.shapeLayerYellow.rawValue]?.add(basicAnimation, forKey: "Speed_Circle_Animation")
+            shapeLayers[ShapeLaper.shapeLayerYellow.rawValue]?.strokeEnd = percent > 75 ? 0.25 : CGFloat(percentage)-0.5
+            fallthrough
+        case 0...50:
+            makeShapeLayer(.shapeLayerGreen, color: UIColor.green.cgColor, strokeEnd: 0.0, rotate: -CGFloat.pi/2)
+            basicAnimation.toValue = percent > 50 ? 0.5 : CGFloat(percentage)
+            shapeLayers[ShapeLaper.shapeLayerGreen.rawValue]?.add(basicAnimation, forKey: "Speed_Circle_Animation")
+            shapeLayers[ShapeLaper.shapeLayerGreen.rawValue]?.strokeEnd = percent > 50 ? 0.5 : CGFloat(percentage)
+        default:
+            print("Doing nothing")
+        }
+    }
+    
     fileprivate func makeCircularProgessBar() {
-        let circularPath = UIBezierPath(arcCenter: .zero, radius: 100, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: true)
-        
-        trackLayer.path = circularPath.cgPath
-        trackLayer.strokeColor = UIColor.lightGray.cgColor
-        trackLayer.lineWidth = 10
-        trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.lineCap = kCALineCapRound
-        trackLayer.position = view.center
-        view.layer.addSublayer(trackLayer)
-        
-        shapeLayer.path = circularPath.cgPath
-        shapeLayer.strokeColor = UIColor.brown.cgColor
-        shapeLayer.lineWidth = 10
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineCap = kCALineCapRound
-        shapeLayer.position = view.center
-        
-        shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi/2, 0, 0, 1)
-        
-        shapeLayer.strokeEnd = 0
-        
-        view.layer.addSublayer(shapeLayer)
+        makeShapeLayer(.trackLayer, color: UIColor.lightGray.cgColor, strokeEnd: 1.0, rotate: -CGFloat.pi/2)
+        view.layer.addSublayer(shapeLayers[ShapeLaper.trackLayer.rawValue]!)
+        makeShapeLayer(.shapeLayerGreen, color: UIColor.lightGray.cgColor, strokeEnd: 0.0, rotate: -CGFloat.pi/2)
+        view.layer.addSublayer(shapeLayers[ShapeLaper.shapeLayerGreen.rawValue]!)
+    }
+    
+    fileprivate func removeShapeLayers() {
+        for shapeLayer in shapeLayers {
+            shapeLayer.value.removeFromSuperlayer()
+        }
     }
     
     @objc private func rotated() {
-        shapeLayer.removeFromSuperlayer()
-        trackLayer.removeFromSuperlayer()
+        removeShapeLayers()
         percentageLabel.removeFromSuperview()
         speedLabel.removeFromSuperview()
         makeCircularProgessBar()
@@ -80,27 +123,14 @@ class SpeedEvolutionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addSomeText()
-
         makeCircularProgessBar()
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-        
         CarsListingViewController.speedEvolution.subscribe(onNext: { speedEvolution in
-            
-            guard let mySpeedEvolution = speedEvolution else {
-                return
-            }
-            let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-            basicAnimation.duration = 0.5
-            basicAnimation.fillMode = kCAFillModeForwards
-            basicAnimation.isRemovedOnCompletion = false
-            
-            let percentage =  mySpeedEvolution.CurrentSpeed / Float(mySpeedEvolution.SpeedMax)
-            basicAnimation.toValue = percentage
-            self.shapeLayer.add(basicAnimation, forKey: "Speed_Circle_Animation")
-            self.shapeLayer.strokeEnd = CGFloat(percentage)
-            self.percentageLabel.text = "\(Int(percentage*100)) %"
+            guard let mySpeedEvolution = speedEvolution else { return }
+            self.percentage =  mySpeedEvolution.CurrentSpeed / Float(mySpeedEvolution.SpeedMax)
+            self.animShapeLayer()
+            self.percentageLabel.text = "\(Int(self.percentage*100)) %"
             self.speedLabel.text = "\(mySpeedEvolution.CurrentSpeed) / \(mySpeedEvolution.SpeedMax)"
         }).disposed(by: disposeBag)
     }

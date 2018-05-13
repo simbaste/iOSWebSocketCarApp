@@ -17,6 +17,7 @@ extension CarsListingViewController: WebSocketDelegate {
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         print("Some error \(String(describing: error))")
+        tableView.refreshControl?.endRefreshing()
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
