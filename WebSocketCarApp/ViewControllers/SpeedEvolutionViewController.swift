@@ -45,6 +45,14 @@ class SpeedEvolutionViewController: UIViewController {
         return label
     }()
     
+    private let speedTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Speed"
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        return label
+    }()
+    
     fileprivate func makeShapeLayer(_ name: ShapeLaper, color: CGColor, strokeEnd: CGFloat, rotate: CGFloat) {
         shapeLayers[name.rawValue]?.path = circularPath.cgPath
         shapeLayers[name.rawValue]?.strokeColor = color
@@ -107,6 +115,7 @@ class SpeedEvolutionViewController: UIViewController {
         removeShapeLayers()
         percentageLabel.removeFromSuperview()
         speedLabel.removeFromSuperview()
+        speedTitleLabel.removeFromSuperview()
         makeCircularProgessBar()
         addSomeText()
     }
@@ -119,6 +128,10 @@ class SpeedEvolutionViewController: UIViewController {
         view.addSubview(speedLabel)
         speedLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         speedLabel.center = CGPoint(x: view.center.x, y: view.center.y+30)
+        
+        view.addSubview(speedTitleLabel)
+        speedTitleLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        speedTitleLabel.center = CGPoint(x: view.center.x, y: view.center.y-30)
     }
     
     override func viewDidLoad() {
